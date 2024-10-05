@@ -1,19 +1,28 @@
 /* General Body Styles */
 body {
-    background-color: #f0f4f8;
+    background: linear-gradient(120deg, #f0f4f8, #cfd9df);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Centered Container */
 .container {
     max-width: 600px;
-    margin: 80px auto;
+    margin: auto;
     background-color: #ffffff;
     padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease-in-out;
+}
+
+.container:hover {
+    transform: scale(1.02); /* Subtle zoom effect when hovering over the container */
 }
 
 /* Page Title */
@@ -22,6 +31,7 @@ h1 {
     color: #343a40;
     font-size: 2.5rem;
     margin-bottom: 30px;
+    animation: fadeIn 1.2s ease-in-out;
 }
 
 /* Input Field */
@@ -37,7 +47,7 @@ textarea {
     font-size: 1rem;
     border: 1px solid #ced4da;
     border-radius: 8px;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
     resize: none;
 }
 
@@ -56,13 +66,14 @@ textarea:focus {
     font-size: 1rem;
     border-radius: 50px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
     width: 100%;
     margin-top: 20px;
 }
 
 .btn:hover {
     background-color: #0056b3;
+    transform: scale(1.05); /* Add a slight scale effect on hover */
 }
 
 /* Result Display */
@@ -73,6 +84,14 @@ textarea:focus {
     padding: 15px;
     border-radius: 8px;
     display: none;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+}
+
+/* Show animation for result */
+#result.show {
+    display: block;
+    opacity: 1;
 }
 
 /* Spam Prediction Styling */
@@ -86,6 +105,12 @@ textarea:focus {
     color: #2ecc71;
     background-color: #e9f7ef;
     border: 1px solid #2ecc71;
+}
+
+/* Keyframes for fadeIn animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* Footer */

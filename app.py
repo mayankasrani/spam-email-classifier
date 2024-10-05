@@ -19,11 +19,17 @@ def home():
 def predict():
     email_text = request.form['email_text']
     
+    # Debug output
+    print(f"Received email text: {email_text}")  # Log received email text
+
     # Transform the input text using the loaded vectorizer
     data = vectorizer.transform([email_text])
     
     # Make prediction
     prediction = model.predict(data)[0]
+
+    # Debug output
+    print(f"Prediction: {prediction}")  # Log prediction result
     
     return jsonify({'prediction': prediction})
 

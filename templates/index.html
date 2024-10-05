@@ -5,70 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Spam Email Classifier</title>
-    <!-- Link to external CSS -->
     <link rel="stylesheet" href="static/styles.css">
 </head>
 <body>
 
-    <!-- Main Container -->
     <div class="container">
         <h1>Spam Email Classifier</h1>
-
-        <!-- Form for Email Text -->
-        <form id="emailForm">
+        <form id="emailForm" method="POST">
             <div class="form-group">
                 <label for="emailText">Enter Email Text:</label>
                 <textarea id="emailText" name="email_text" placeholder="Type or paste the email content here..."></textarea>
             </div>
-
-            <!-- Submit Button -->
             <button type="submit" class="btn">Classify Email</button>
         </form>
-
-        <!-- Result Display -->
         <div id="result"></div>
     </div>
 
-    <!-- Optional Footer -->
-    <footer>
-        <p>Made by Joann & Mayank | <a href="https://github.com/mayankasrani/spam-email-classifier" target="_blank">GitHub Repository</a></p>
-    </footer>
-
-    <!-- jQuery (you can include it locally if needed) -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <!-- JavaScript for Form Handling and Result Display -->
     <script>
         $('#emailForm').on('submit', function(event) {
-            event.preventDefault();
-
-            // Send email text to the backend for prediction
+            event.preventDefault(); // Prevent default form submission
+    
+            // Send the email text to the backend for classification
             $.ajax({
                 type: 'POST',
                 url: '/predict',
                 data: { email_text: $('#emailText').val() },
                 success: function(response) {
                     const resultDiv = $('#result');
-                    
+    
                     // Clear previous classes
                     resultDiv.removeClass('spam not-spam');
-
+    
                     // Display the prediction
+                    console.log('Response:', response); // Log the entire response
                     resultDiv.text('Prediction: ' + response.prediction);
-
+    
                     // Add relevant class for styling
                     if (response.prediction === 'spam') {
                         resultDiv.addClass('spam');
                     } else {
                         resultDiv.addClass('not-spam');
                     }
-
+    
                     // Show the result
                     resultDiv.show();
+                },
+                error: function(xhr, status, error) {
+                    // Handle any errors
+                    console.error('Error:', error); // Log error for debugging
+                    $('#result').text('An error occurred while processing the request.');
                 }
             });
         });
     </script>
+    
 
 </body>
 </html>

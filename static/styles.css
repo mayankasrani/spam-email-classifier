@@ -1,131 +1,104 @@
-/* General Body Styles */
-body {
-    background: linear-gradient(120deg, #f0f4f8, #cfd9df);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* Basic Reset */
+* {
     margin: 0;
     padding: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    box-sizing: border-box;
 }
 
-/* Centered Container */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9; /* Light background color */
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Main Container */
 .container {
     max-width: 600px;
-    margin: auto;
-    background-color: #ffffff;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease-in-out;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff; /* White background for content */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    animation: fadeIn 0.5s; /* Fade-in animation */
 }
 
-.container:hover {
-    transform: scale(1.02); /* Subtle zoom effect when hovering over the container */
-}
-
-/* Page Title */
+/* Heading */
 h1 {
     text-align: center;
-    color: #343a40;
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-    animation: fadeIn 1.2s ease-in-out;
+    margin-bottom: 20px;
+    color: #4a4a4a; /* Darker text color */
 }
 
-/* Input Field */
-.form-group label {
-    font-size: 1.1rem;
-    color: #495057;
+/* Form Group */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold; /* Bold label */
 }
 
 textarea {
-    width: 100%;
+    width: 100%; /* Full width */
     height: 150px;
-    padding: 15px;
-    font-size: 1rem;
-    border: 1px solid #ced4da;
-    border-radius: 8px;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    resize: none;
+    padding: 10px;
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Font size for textarea */
+    transition: border-color 0.3s; /* Smooth border color change */
 }
 
 textarea:focus {
-    outline: none;
-    border-color: #007bff;
-    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+    border-color: #007BFF; /* Highlight border on focus */
+    outline: none; /* Remove default outline */
 }
 
-/* Button Styling */
+/* Button */
 .btn {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    font-size: 1rem;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    width: 100%;
-    margin-top: 20px;
+    background-color: #007BFF; /* Primary button color */
+    color: white; /* White text color */
+    padding: 10px 15px; /* Padding for button */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    font-size: 16px; /* Font size for button */
+    display: block; /* Block display */
+    margin: 0 auto; /* Center button */
+    transition: background-color 0.3s; /* Smooth background color change */
 }
 
 .btn:hover {
-    background-color: #0056b3;
-    transform: scale(1.05); /* Add a slight scale effect on hover */
+    background-color: #0056b3; /* Darker shade on hover */
 }
 
 /* Result Display */
 #result {
-    font-size: 1.5rem;
-    margin-top: 30px;
-    text-align: center;
-    padding: 15px;
-    border-radius: 8px;
-    display: none;
-    opacity: 0;
-    transition: opacity 0.6s ease-in-out;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px; /* Rounded corners */
+    display: none; /* Hide by default */
 }
 
-/* Show animation for result */
-#result.show {
-    display: block;
-    opacity: 1;
+/* Result Styles */
+.spam {
+    background-color: #ffdddd; /* Light red for spam */
+    color: #d8000c; /* Dark red text */
 }
 
-/* Spam Prediction Styling */
-#result.spam {
-    color: #e74c3c;
-    background-color: #f9e6e6;
-    border: 1px solid #e74c3c;
+.not-spam {
+    background-color: #ddffdd; /* Light green for not spam */
+    color: #4CAF50; /* Dark green text */
 }
 
-#result.not-spam {
-    color: #2ecc71;
-    background-color: #e9f7ef;
-    border: 1px solid #2ecc71;
-}
-
-/* Keyframes for fadeIn animation */
+/* Fade-in Animation */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Footer */
-footer {
-    margin-top: 40px;
-    text-align: center;
-    font-size: 0.9rem;
-    color: #6c757d;
-}
-
-footer a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
+    from {
+        opacity: 0; /* Start invisible */
+    }
+    to {
+        opacity: 1; /* Fade to visible */
+    }
 }

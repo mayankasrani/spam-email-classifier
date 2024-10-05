@@ -1,0 +1,11 @@
+text,label
+"Congratulations! You've won a $1,000 Walmart gift card. Click here to claim your prize.",spam
+"Dear user, your account has been compromised. Please provide your password to verify.",spam
+"Your appointment is confirmed for next Wednesday at 10 AM.",not spam
+"Important notice: Your subscription is about to expire.",spam
+"Meeting reminder: Don't forget about our meeting tomorrow at 3 PM.",not spam
+"Act now! Limited time offer for a free trial of our premium service.",spam
+"Thank you for your order! Your items will be shipped soon.",not spam
+"You've received a new message from your bank. Click here to read it.",spam
+"Looking forward to seeing you at the conference next month.",not spam
+"This is not a spam message, just checking in!",not spam

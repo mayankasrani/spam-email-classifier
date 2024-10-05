@@ -1,6 +1,12 @@
 body {
     font-family: Arial, sans-serif;
+<<<<<<< HEAD:style.css
     background-color: #f4f4f4;
+=======
+    background-image: url('bg.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+>>>>>>> 6e9cf172ece3dce2e772fda3a81a7c62333a29cb:styles.css
     display: flex;
     justify-content: center;
     align-items: center;
